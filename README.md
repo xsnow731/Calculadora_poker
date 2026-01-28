@@ -1,123 +1,77 @@
-Simulador de Equidade no Texas Hold'em (Monte Carlo)
+🃏 Calculadora de Poker – Poker Odds Calculator
 
-Este projeto realiza uma simulação de Monte Carlo para estimar a equidade (probabilidade de vitória, empate e derrota) de uma mão de Texas Hold'em contra um número configurável de oponentes.
+Aplicação desktop em Python que calcula probabilidades reais de vitória no Texas Hold’em, em tempo real, com interface gráfica intuitiva, visual adaptativo e dicas de apostas automáticas.
 
-A simulação utiliza a biblioteca treys, uma das mais rápidas e eficientes para avaliação de mãos de pôquer.
+Ideal para estudo, treino e análise de decisões no poker.
 
-📌 Funcionalidades
+🎯 Funcionalidades
 
-Cálculo aproximado da equidade de uma mão inicial.
+✅ Seleção por etapas do jogo
 
-Suporte para qualquer número de oponentes.
+Mão do jogador (2 cartas)
 
-Simulação configurável (padrão: 50.000 rodadas).
+Flop (3 cartas)
 
-Interface simples via terminal.
+Turn (1 carta)
 
-Resultados mostrados em porcentagem: Vitória, Empate, Derrota.
+River (1 carta)
 
-🧠 Como funciona
+✅ Cálculo contínuo de chances de vitória
 
-A simulação segue os seguintes passos:
+Simulação Monte Carlo
 
-O usuário insere suas duas cartas no formato ValorNaipe
-Exemplos:
+Avaliação real de mãos (7 cartas → melhor combinação de 5)
 
-As → Ás de espadas
+Suporte de 2 a 8 jogadores
 
-Kd → Rei de ouros
+✅ Interface visual inteligente
 
-Th → Dez de copas
+Cartas organizadas por naipe em cada linha
 
-7c → Sete de paus
+Cores reais dos naipes:
 
-Em cada simulação:
+♥ ♦ vermelho
 
-O baralho é criado e as cartas do jogador são removidas.
+♠ ♣ preto
 
-Cada oponente recebe duas cartas aleatórias.
+Cor da janela varia conforme a chance de vitória:
 
-A mesa (board) recebe 5 cartas aleatórias.
+🔴 Vermelho → situação ruim
 
-O avaliador (Evaluator) determina a força de cada mão.
+🟡 Amarelo → situação equilibrada
 
-Verifica-se se o jogador venceu, empatou ou perdeu.
+🟢 Verde → situação dominante
 
-Ao final, as probabilidades são computadas e exibidas.
+✅ Dicas automáticas de aposta
 
-📦 Instalação
-1. Instale a biblioteca treys:
-pip install treys
+Fold
 
-2. Execute o arquivo Python normalmente:
-python simulador_holdem.py
+Check / Call
 
-▶️ Como usar
+Aposta
 
-Quando você rodar o script, será solicitado:
+Aposta forte
 
-Digite suas duas cartas no formato: ValorNaipe
-Exemplo: As, Kd, Th, 7c
+All in
 
-Digite a primeira carta:
-Digite a segunda carta:
-Digite o número de adversários:
+🧠 Lógica de decisão (dicas de aposta)
+Chance de vitória	Sugestão
+< 20%	❌ Desistir (Fold)
+20% – 40%	⚠️ Check / Call pequeno
+40% – 60%	💰 Apostar
+60% – 80%	🔥 Apostar forte
+> 80%	🟢 ALL IN
 
+⚠️ As dicas são heurísticas realistas, voltadas para estudo e tomada de decisão padrão (não é GTO perfeito).
 
-Exemplo de entrada:
+🛠️ Tecnologias utilizadas
 
-Primeira carta: As
-Segunda carta: Kd
-Adversários: 3
+Python 3
 
+Tkinter (interface gráfica)
 
-Exemplo de saída:
+Monte Carlo Simulation
 
-Probabilidade aproximada em %:
-Vitória: 32.8%
-Empate: 4.12%
-Derrota: 63.08%
+Algoritmo real de avaliação de mãos de poker
 
-📂 Código Completo
-
-O código principal do simulador é responsável por:
-
-Criar o baralho
-
-Distribuir mãos
-
-Avaliar resultados com a biblioteca treys
-
-Mostrar as probabilidades finais
-
-(Seu código original entra aqui, se desejado.)
-
-📈 Precisão da Simulação
-
-Simulação padrão: 50.000 rodadas
-
-Quanto maior o número de simulações, mais preciso será o resultado.
-
-Para máxima precisão, recomenda-se usar 200.000 a 1.000.000 simulações, caso sua máquina permita.
-
-📝 Observações
-
-O método Monte Carlo fornece resultados aproximados, mas muito próximos do valor real.
-
-O formato das cartas deve sempre seguir ValorNaipe:
-
-Valores: A K Q J T 9 8 7 6 5 4 3 2
-
-Naipes: s h d c (spades, hearts, diamonds, clubs)
-
-🤝 Contribuições
-
-Fique à vontade para:
-
-Melhorar o código
-
-Criar interface gráfica
-
-Adicionar gráficos de distribuição de resultados
-
-Publicar no GitHub com licença MIT
+PyInstaller (para gerar executável)
